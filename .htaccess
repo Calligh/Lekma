@@ -3,9 +3,17 @@
 		Options +FollowSymLinks -MultiViews
 	</IfModule>
 
-	RewriteEngine On
+	ErrorDocument 404 /lekma/404.php
+	ErrorDocument 500 /lekma/500.php
+	ErrorDocument 403 /lekma/403.php
 
-	RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} !^/lekma
+    RewriteRule ^(.*)$ /lekma/$1 [NC,L]
+    RewriteRule ^index$ index.php [NC,L]
+    RewriteRule ^dashboard$ dashboard.php [NC,L]
+    RewriteRule ^register/companies$ companies.php [NC,L]
+    RewriteRule ^registered/businesses$ businesses.php [NC,L]
 
 </IfModule>

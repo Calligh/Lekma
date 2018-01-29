@@ -11,14 +11,6 @@
   	public $password;
   	public $course;
 
-  	// function __construct($fullname,$email,$password,$course)
-  	// {
-  	// 	$this->fullname = $fullname;
-  	// 	$this->email    = $email;
-  	// 	$this->password = $password;
-  	// 	$this->course   = $course;
-  	// }
-
   	//Function for the signing up configurations
   	public function SignUp($mysqli,$fullname,$email,$password,$course){
   		$query = "INSERT INTO ldb_signup_tb(fullname,email,password,course,profile,created_at,updated_at) VALUES('$fullname','$email','$password','$course','student',NOW(),NOW())";
@@ -42,8 +34,8 @@
   	}
 
     //Function for the login configurations
-    public function LogIn($mysqli,$email,$password){
-      $query = "SELECT * FROM ldb_signup_tb WHERE email = '$email' AND password = '$password'";
+    public function LogIn($mysqli,$username){
+      $query = "SELECT * FROM admin WHERE username = '$username'";
       $results = $mysqli->query($query);
       return $results;
     }

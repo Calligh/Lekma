@@ -15,14 +15,13 @@
  	protected $_query;
  	protected $_results;
 
- 	public function createIfNotExist($mysqli){
- 		$_query = "CREATE TABLE IF NOT EXISTS ldb_signup_tb(
+ 	public function createAdminIfNotExist($mysqli){
+ 		$_query = "CREATE TABLE IF NOT EXISTS admin(
  			id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- 			fullname VARCHAR(120) NOT NULL,
- 			email VARCHAR(60) NOT NULL,
+ 			username VARCHAR(20) NOT NULL,
  			password VARCHAR(60) NOT NULL,
- 			course VARCHAR(60) NOT NULL,
- 			profile VARCHAR(7) NOT NULL,
+ 			status INT NOT NULL,
+ 			last_seen date NOT NULL,
  			created_at datetime NOT NULL, 
  			updated_at datetime NOT NULL
  		)";

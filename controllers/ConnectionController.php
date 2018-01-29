@@ -10,7 +10,7 @@ class DBConnect
 	 	$DB_USERNAME = "root";
 		$DB_PASSWORD = "password";
 		$DB_PORT = 3306;
-		$DB_NAME = "learning_cloud_db";
+		$DB_NAME = "lekma";
 
 		$mysqli = new mysqli($DB_HOSTNAME,$DB_USERNAME,$DB_PASSWORD,$DB_NAME,$DB_PORT);
 		if (!$mysqli->connect_error) {

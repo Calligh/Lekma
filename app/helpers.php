@@ -53,18 +53,42 @@
  		'ORDER BY'
  	];
 
+ 	public $dictators = [
+ 		'INTO',
+ 		'FROM',
+ 		'SET'
+ 	];
 
  	// function __construct(argument)
  	// {
  	// 	# code...
  	// }
 
- 	public function insert($table = NULL){
- 		$this->columns = 
+ 	/**
+ 	**/
+ 	public function insert($columns = ['*']){
+ 		$this->columns = is_array($columns) ? $columns: func_get_args();
+ 		return $this;
  	}
 
- 	public function select($table = NULL){
+ 	public function take(int $number){
+ 		if (is_int($number) && !empty($number)) {
+ 			return $this->limit($number);
+ 		}else{
+ 			return;
+ 		}
+ 	}
 
+ 	public function limit(int $number){
+ 		return $this->number;
+ 	}
+
+ 	public function from(string $from = "FROM"){
+ 		return $this->from = $from;
+ 	}
+
+ 	public function where($column,$assignment,$value){
+ 		
  	}
  } 
  ?>
